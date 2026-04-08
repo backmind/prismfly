@@ -1,0 +1,38 @@
+{
+  "fiscal": {
+    "2024": {"bruto": 30000.00, "neto": 22000.00},
+    "2025": {"bruto": 32000.00, "neto": 23500.00}
+  },
+  "salary_sources": ["Employer Name"],
+  "salary_categories": ["Salary"],
+  "main_accounts": {"Main Account": 1, "Shared Account": 2},
+
+  "partner_name": "",
+  "partner_source_pattern": "",
+  "partner_categories": [],
+
+  "income_investment_sources": [],
+  "income_heritage_keywords": [],
+  "income_tax_return_sources": [],
+
+  "exclude_categories": [],
+
+  "capital_tags": [],
+  "capital_keywords": [],
+
+  "renovation_tags": [],
+
+  "subs_formacion": [],
+  "subs_tecnologia": [],
+
+  "basket_map": {
+    "Vivienda": "Housing",
+    "Supermercado": "Food"
+  },
+
+  "escudo_accounts": {
+    "Main Account": {"id": 1, "desc": "Daily expenses"}
+  },
+  "investment_accounts": {},
+  "other_accounts": {}
+}
