@@ -1,4 +1,6 @@
-# Real Purchasing Power Analysis
+# Prismfly
+
+**Decompose your spending, track your real purchasing power.**
 
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
 [![Firefly III](https://img.shields.io/badge/Firefly%20III-6.x-orange.svg)](https://www.firefly-iii.org/)
