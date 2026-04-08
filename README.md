@@ -7,7 +7,9 @@
 [![Plotly.js](https://img.shields.io/badge/charts-Plotly.js-3F4F75.svg)](https://plotly.com/javascript/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-Cross-analysis of [Firefly III](https://www.firefly-iii.org/) transaction data with tax return records to track real purchasing power evolution, personal inflation vs official CPI, and lifestyle inflation dynamics.
+After 10 years of manually recording every transaction and reconciling all accounts every morning in [Firefly III](https://www.firefly-iii.org/), the dataset is rich enough for deeper questions: how has my real cost of living evolved? Is my discretionary spending growing faster than my income? Can I sustain my investment plan while keeping a comfortable margin?
+
+Prismfly crosses that granular spending data with income tax records to answer those questions — with an interactive dashboard and a markdown report you can feed to an LLM for further analysis.
 
 ## Features
 
