@@ -23,7 +23,7 @@ Cross-analysis of [Firefly III](https://www.firefly-iii.org/) transaction data w
 - [uv](https://docs.astral.sh/uv/)
 - Firefly III instance accessible on your network
 - `.env` file with `FIREFLY_URL` and `FIREFLY_TOKEN`
-- `personal.json` with your fiscal data and account structure (see `personal.example.json`)
+- `personal.json` with your tax data and account structure (see `personal.example.json`)
 
 ## Usage
 
@@ -55,7 +55,7 @@ For LLM-assisted discussion, provide both `dashboard.md` and `CONTEXTO.md` (your
 │   ├── analyze.py        # Basket classification, ICVP, elasticity, waterfall
 │   ├── dashboard.py      # Plotly.js HTML generation
 │   └── report.py         # Markdown report generation
-├── personal.json         # Your fiscal data, accounts, filters (gitignored)
+├── personal.json         # Your tax data, accounts, filters (gitignored)
 ├── personal.example.json # Template for personal.json
 ├── CONTEXTO.md           # Narrative context for LLM analysis (manual, gitignored)
 ├── data/                 # Cached JSON (auto-generated, gitignored)
@@ -70,14 +70,14 @@ All personal data lives in `personal.json` (gitignored). See `personal.example.j
 
 | Section | Purpose |
 |---|---|
-| `fiscal` | Annual gross/net salary by year |
+| `tax_data` | Annual gross/net salary by year |
 | `salary_sources` | Employer names for income classification |
 | `main_accounts` | Firefly account names + IDs for savings tracking |
 | `partner_*` | Shared expense reimbursement config (optional) |
 | `basket_map` | Firefly category → analytical basket mapping |
 | `capital_tags` / `capital_keywords` | Capital expenditure detection |
 | `renovation_tags` | One-off renovation exclusion from sustainability waterfall |
-| `escudo_accounts` / `investment_accounts` / `other_accounts` | Patrimonial snapshot for the report |
+| `shield_accounts` / `investment_accounts` / `other_accounts` | Financial snapshot for the report |
 
 ## Dashboard
 
@@ -105,7 +105,7 @@ Transaction data is cached as JSON in `data/`. Closed years are never re-fetched
 Update `personal.json` with each new tax year. Update `IPC_ACUM` / `IPC_INTER` in `config.py` with official CPI data.
 
 ### Categories and filters
-- Subscription reclassification: `subs_formacion` / `subs_tecnologia` in `personal.json`
+- Subscription reclassification: `subs_education` / `subs_technology` in `personal.json`
 - Renovation one-offs: tag transactions in Firefly with the tags listed in `renovation_tags`
 - Capital expenditures: tag with `capital_tags` or add description keywords to `capital_keywords`
 

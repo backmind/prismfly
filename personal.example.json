@@ -1,7 +1,7 @@
 {
-  "fiscal": {
-    "2024": {"bruto": 30000.00, "neto": 22000.00},
-    "2025": {"bruto": 32000.00, "neto": 23500.00}
+  "tax_data": {
+    "2024": {"gross": 30000.00, "net": 22000.00},
+    "2025": {"gross": 32000.00, "net": 23500.00}
   },
   "salary_sources": ["Employer Name"],
   "salary_categories": ["Salary"],
@@ -12,6 +12,7 @@
   "partner_categories": [],
 
   "income_investment_sources": [],
+  "income_investment_categories": [],
   "income_heritage_keywords": [],
   "income_tax_return_sources": [],
 
@@ -19,18 +20,20 @@
 
   "capital_tags": [],
   "capital_keywords": [],
+  "capital_destinations": {},
 
   "renovation_tags": [],
 
-  "subs_formacion": [],
-  "subs_tecnologia": [],
+  "subscription_category": "",
+  "subs_education": [],
+  "subs_technology": [],
 
   "basket_map": {
-    "Vivienda": "Housing",
-    "Supermercado": "Food"
+    "Rent": "Housing",
+    "Groceries": "Food"
   },
 
-  "escudo_accounts": {
+  "shield_accounts": {
     "Main Account": {"id": 1, "desc": "Daily expenses"}
   },
   "investment_accounts": {},

@@ -7,6 +7,15 @@ data (CPI) and the basket/color structure.
 import json
 from pathlib import Path
 
+
+def _get(d, *keys, default=None):
+    """Try multiple keys in order (for backwards compat), return first found."""
+    for k in keys:
+        if k in d:
+            return d[k]
+    return default
+
+
 # ── Personal data (from personal.json) ───────────────────────────
 _personal_path = Path(__file__).resolve().parent.parent / "personal.json"
 if not _personal_path.exists():
@@ -19,14 +28,21 @@ with open(_personal_path, "r", encoding="utf-8") as _f:
     _personal = json.load(_f)
 
 # Tax / fiscal data
-FISCAL = {int(k): v for k, v in _personal["fiscal"].items()}
+_tax = _get(_personal, "tax_data", "fiscal", default={})
+FISCAL = {}
+for k, v in _tax.items():
+    FISCAL[int(k)] = {
+        "neto": v.get("net", v.get("neto", 0)),
+        "bruto": v.get("gross", v.get("bruto", 0)),
+    }
+
 SALARY_SOURCES = set(_personal.get("salary_sources", []))
 SALARY_CATS = set(_personal.get("salary_categories", []))
 
 # Accounts
 MAIN_ACCOUNTS = {k: int(v) for k, v in _personal.get("main_accounts", {}).items()}
 MAIN_ACCOUNTS_LABEL = " + ".join(MAIN_ACCOUNTS.keys()) or "Main accounts"
-ESCUDO_ACCOUNTS = _personal.get("escudo_accounts", {})
+ESCUDO_ACCOUNTS = _get(_personal, "shield_accounts", "escudo_accounts", default={})
 INVESTMENT_ACCOUNTS = _personal.get("investment_accounts", {})
 OTHER_ACCOUNTS = _personal.get("other_accounts", {})
 
@@ -37,7 +53,7 @@ PARTNER_CATEGORIES = set(_personal.get("partner_categories", []))
 
 # Income classification
 INCOME_INVESTMENT_SOURCES = set(_personal.get("income_investment_sources", []))
-INCOME_INVESTMENT_CATS = set(_personal.get("investment_categories", []))
+INCOME_INVESTMENT_CATS = set(_get(_personal, "income_investment_categories", "investment_categories", default=[]))
 INCOME_HERITAGE_KEYWORDS = set(_personal.get("income_heritage_keywords", []))
 INCOME_TAX_RETURN_SOURCES = set(_personal.get("income_tax_return_sources", []))
 
@@ -52,13 +68,13 @@ CAPITAL_DESTINATIONS = _personal.get("capital_destinations", {})
 # Renovation tags (excluded from waterfall)
 RENOVATION_TAGS = set(_personal.get("renovation_tags", []))
 
-# Subscription reclassification by destination
+# Subscription reclassification
 SUBSCRIPTION_CATEGORY = _personal.get("subscription_category", "")
-SUBS_EDUCATION = set(_personal.get("subs_formacion", []))
-SUBS_TECHNOLOGY = set(_personal.get("subs_tecnologia", []))
+SUBS_EDUCATION = set(_get(_personal, "subs_education", "subs_formacion", default=[]))
+SUBS_TECHNOLOGY = set(_get(_personal, "subs_technology", "subs_tecnologia", default=[]))
 
-# Firefly category -> basket mapping (customizable)
-BASKET_MAP = _personal.get("basket_map", _personal.get("cesta_map", {}))
+# Firefly category -> basket mapping
+BASKET_MAP = _get(_personal, "basket_map", "cesta_map", default={})
 
 # ── Public data (CPI, INE Spain) ─────────────────────────────────
 IPC_ACUM = {
