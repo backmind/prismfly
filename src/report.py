@@ -51,7 +51,7 @@ def generate(data: dict, output: Path = Path("report.md"), balances: list | None
         w(f"**Total financial assets: {t_escudo + t_inv + t_other:,.2f} EUR**")
         w("")
 
-    w("> For interpretation of this data, see **CONTEXTO.md** (personal situation, account structure, investment strategy, financial events, notes on volatile items).")
+    w("> For interpretation of this data, see **CONTEXT.md** (personal situation, account structure, investment strategy, financial events, notes on volatile items).")
     w("")
 
     # ── KPIs ──

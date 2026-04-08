@@ -46,7 +46,7 @@ uv run main.py --force
 - `dashboard.html` — interactive dashboard, open in any browser
 - `dashboard.md` — raw metrics in markdown, for LLM analysis or external tools
 
-For LLM-assisted discussion, provide both `dashboard.md` and `CONTEXTO.md` (your manually maintained narrative context).
+For LLM-assisted discussion, provide both `dashboard.md` and `CONTEXT.md` (your manually maintained narrative context).
 
 ## Project Structure
 
@@ -61,7 +61,7 @@ For LLM-assisted discussion, provide both `dashboard.md` and `CONTEXTO.md` (your
 │   └── report.py         # Markdown report generation
 ├── personal.json         # Your tax data, accounts, filters (gitignored)
 ├── personal.example.json # Template for personal.json
-├── CONTEXTO.md           # Narrative context for LLM analysis (manual, gitignored)
+├── CONTEXT.md           # Narrative context for LLM analysis (manual, gitignored)
 ├── data/                 # Cached JSON (auto-generated, gitignored)
 ├── .env                  # API URL and token (gitignored)
 ├── dashboard.html        # Generated dashboard (gitignored)
@@ -114,7 +114,7 @@ Update `personal.json` with each new tax year. Update `IPC_ACUM` / `IPC_INTER` i
 - Capital expenditures: tag with `capital_tags` or add description keywords to `capital_keywords`
 
 ### Narrative context
-Update `CONTEXTO.md` when personal circumstances, investment strategy, or major financial events change.
+Update `CONTEXT.md` when personal circumstances, investment strategy, or major financial events change.
 
 ## License
 

@@ -12,7 +12,7 @@ wheels/
 # Secrets and personal data
 .env
 personal.json
-CONTEXTO.md
+CONTEXT.md
 CLAUDE.md
 claude.md
 
